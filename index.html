@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Compatibilidad</title>
+    <style>
+       body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+h1 {
+    color: #FF69B4; /* Rosa Curioso */
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.question-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    appearance: none; /* Quitar estilo nativo en algunos navegadores */
+    background: #fff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2C197.8L151.2%2C62.1c-5.8-5.8-15.3-5.8-21.1%2C0L5.4%2C197.8c-5.8%2C5.8-5.8%2C15.3%2C0%2C21.1c5.8%2C5.8%2C15.3%2C5.8%2C21.1%2C0L140.7%2C101.4l114.2%2C114.2c5.8%2C5.8%2C15.3%2C5.8%2C21.1%2C0C292.8%2C213.1%2C292.8%2C203.6%2C287%2C197.8z%22%2F%3E%3C%2Fsvg%3E") no-repeat right 10px top 50%;
+    background-size: 12px;
+}
+
+button {
+    background-color: #4CAF50; /* Verde atractivo */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos del Spinner de Carga (Loader) */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #FF69B4;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto 0;
+    display: none; /* Oculto por defecto */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilos del Modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrado vertical y horizontal */
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.modal-content h2 {
+    color: #FF69B4;
+    font-size: 2em;
+}
+
+.cita-msg {
+    font-style: italic;
+    color: #333;
+    margin: 15px 0;
+}
+
+/* Animación del Modal */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+/* Botón de cerrar (x) */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test de Súper Compatibilidad</h1>
+        <p>Responde estas dos preguntas cruciales para conocer nuestro destino:</p>
+
+        <form id="compatibilityForm">
+            <div class="question-group">
+                <label for="q1">1. ¿Qué prefieres para un plan relajado?</label>
+                <select id="q1" required>
+                    <option value="">-- Elige una opción --</option>
+                    <option value="latte">Maratón de películas viejas.</option>
+                    <option value="negro">Salir a descubrir un lugar nuevo.</option>
+                </select>
+            </div>
+
+            <div class="question-group">
+                <label for="q2">2. ¿Cuál es tu comida favorita (sin pensarlo)?</label>
+                <select id="q2" required>
+                    <option value="">-- Elige una opción --</option>
+                    <option value="terror">Comida callejera (tacos, burgers, etc.).</option>
+                    <option value="comedia">Un restaurante elegante con postre.</option>
+                </select>
+            </div>
+
+            <button type="submit" id="submitBtn">Ver Resultado</button>
+
+            <div id="loader" class="loader"></div>
+        </form>
+    </div>
+
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>¡Compatibilidad del 100%! ❤️</h2>
+            <p>La verdad es que no necesito un algoritmo para saber que me encantas.</p>
+            <p class="cita-msg">La única forma de verificar este resultado es con una cita.</p>
+            
+            <button id="proposeDateBtn">¡Propón la cita ahora!</button> 
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('compatibilityForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    const submitBtn = document.getElementById('submitBtn');
+    const loader = document.getElementById('loader');
+    const modal = document.getElementById('resultModal');
+
+    // 1. Deshabilitar botón y mostrar el loader (simulando "cargando")
+    submitBtn.textContent = 'Calculando...';
+    submitBtn.disabled = true;
+    loader.style.display = 'block';
+
+    // 2. Simular un proceso de carga de 3 segundos
+    setTimeout(function() {
+        // 3. Ocultar loader y reestablecer botón
+        loader.style.display = 'none';
+        submitBtn.textContent = '¡Resultado Visto!';
+        
+        // 4. Mostrar el modal con el mensaje cursi
+        modal.style.display = 'block';
+
+    }, 3000); // 3000 milisegundos = 3 segundos de "carga"
+});
+
+// Lógica para cerrar el modal al hacer clic en la 'x' o fuera de él
+const modal = document.getElementById('resultModal');
+const closeBtn = document.querySelector('.close-btn');
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+    </script>
+</body>
+</html>
